@@ -51,8 +51,7 @@ public class TelaJogo extends AppCompatActivity implements View.OnClickListener{
         listaImagens.add(R.drawable.forca_10_9);
         listaImagens.add(R.drawable.forca_11_9);
 
-        b1 = findViewById(R.id.id1);
-        b1.setOnClickListener(this);
+
 
         listaPalavras = new ArrayList<String>();
 
@@ -120,9 +119,10 @@ public class TelaJogo extends AppCompatActivity implements View.OnClickListener{
         listaIdsButtons.add(R.id.id26);
 
         for (int j = 0; j<listaIdsButtons.size();j++){
-            Button b = findViewById(ListaIdsButtons.get(j));
+            Button b = findViewById(listaIdsButtons.get(j));
             b.setOnClickListener(this);
         }
+        inicializaJogo();
 
 
 
@@ -135,12 +135,32 @@ public class TelaJogo extends AppCompatActivity implements View.OnClickListener{
 
         public void inicializaJogo(){
         imagem.setImageResource(R.drawable.forca_0_9);
+        indiceListaImagens = 0;
         palavra = sorteiaPalavra();
+
         estado = new char[palavra.length()];
         for(int i =0; i<estado.length;i++){
             estado[i] = '_';
         }
         atualizaTexto();
+
+
+        }
+
+        public void verificaLetra(char c){
+          boolean status = false;
+          for(int i=0; i<palavra.length();i++){
+              if(palavra.charAt(i)==c){
+                  status = true;
+                  estado[i] = c;
+              }
+          }
+          if(!status){
+              atualizaForca();
+          }
+          else{
+              atualizaTexto();
+          }
 
 
         }
@@ -168,12 +188,13 @@ public class TelaJogo extends AppCompatActivity implements View.OnClickListener{
     }
 
     @Override
-    public void onClick(View v) {
+  0  public void onClick(View v) {
         Button b = (Button) v;
-        texto.setText(b.getText().toString());
+        verificaLetra(b.getText().toString().charAt(0));
+        //permantente para jogar
+        b.setEnabled(false);
 
-
-
+''
 
     }
 }
