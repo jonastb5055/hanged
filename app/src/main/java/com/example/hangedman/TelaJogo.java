@@ -176,12 +176,12 @@ public class TelaJogo extends AppCompatActivity implements View.OnClickListener{
                     public void onClick(DialogInterface dialog, int which) {
 
                     }
-                });                                                                                 v=
+                });
             }
             if(contaErro >= listaImagens.size())
             {
                 AlertDialog.Builder caixa = new AlertDialog.Builder(this);
-                caixa.setTitle("VOCÊ PERDEU SEU MERDA KKKKKKKKKKKKKKKKKKKK");
+                caixa.setTitle("VOCÊ PERDEU SEU IDIOTA KKKKKKKKKKKKKKKKKKKK");
                 caixa.setMessage("QUER JOGAR DE NOVO??^??????");
                 caixa.setPositiveButton("Jogar", new DialogInterface.OnClickListener() {
                     @Override
@@ -224,6 +224,7 @@ public class TelaJogo extends AppCompatActivity implements View.OnClickListener{
         }
 
         public void atualizaTexto() {
+
             String temporaria = new String();
             temporaria = "";
             for (int i = 0; i < estado.length; i++) {
